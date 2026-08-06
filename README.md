@@ -1,0 +1,81 @@
+# Differentially Private Machine Learning & Cybersecurity Repository
+
+This repository contains the source code, empirical analyses, and benchmarking results for 7 core projects focused on *Differential Privacy (DP)* and *Privacy-Preserving Machine Learning*. The primary objective of these projects is to guarantee mathematical privacy bounds (Epsilon) while maintaining model utility, securing text/image classification, generating safe synthetic data, fine-tuning Large Language Models (LLMs), auditing privacy leakage, and mitigating advanced cybersecurity threats.
+
+---
+
+## 🛠️ Tech Stack
+
+* *Frameworks & Libraries:* PyTorch, Opacus, Hugging Face (Transformers, PEFT)
+* *Core Concepts:* Differential Privacy (DP-SGD), Privacy-Utility Trade-off, Membership Inference Attack (MIA), LoRA Fine-tuning, Privacy Auditing & Benchmarking
+* *Data & Tasks:* Medical Dataset, LLM, NLP (Text Embedding), Computer Vision (MNIST), Synthetic Data Generation
+
+---
+
+## 🚀 Projects Overview & Empirical Results
+
+### 1. DP-SGD Privacy-Utility Trade-off Analysis
+* *File Name:* dp_sgd_privacy_utility_tradeoff_analysis.ipynb
+* *Objective:* Analyze how changes in the noise scale affect the privacy loss (Epsilon) and the model's loss (Utility) using synthetic data.
+* *Results & Achievements:* Successfully modeled the mathematical trade-off by varying the Noise Multiplier from 0.5 to 3.0.
+* *Note:*
+Interactive convergence graphs and trade-off visualization curves are included inside this notebook.
+
+### 2. DP-CNN for MNIST Image Classification
+* *File Name:* dp_cnn_mnist_image_classification.ipynb
+* *Objective:* Build a privacy-preserving Convolutional Neural Network (CNN) trained on 60,000 real-world images from the MNIST dataset.
+* *Results & Achievements:* Achieved an exceptionally strong and tight privacy guarantee of Epsilon = 0.11, reducing data leakage risks to near zero.
+* *Note:*
+Training loss curves and privacy-utility distribution plots are included inside this notebook.
+
+### 3. Differentially Private Text Classification
+* *File Name:* dp-text-classification-opacus.ipynb
+* *Objective:* Develop a privacy-preserving text classifier utilizing NLP (Text Embedding) and Opacus to safeguard sensitive user emails and textual data.
+* *Results & Achievements:* Successfully enforced a robust differential privacy guarantee with a strict upper bound of Epsilon = 1.99.
+* *Note:*
+Epsilon growth tracking charts and accuracy metrics are included inside this notebook.
+
+### 4. Membership Inference Attack (MIA) Defense
+* *File Name:* mia-defense-analysis-opacus.ipynb
+* *Objective:* Protect machine learning models against adversarial threats where an attacker attempts to determine whether a specific data point was used in the training set.
+* *Results & Achievements:* Integrated a Noise Multiplier of 1.5 using Opacus to successfully neutralize the attack, drastically degrading the hacker's attack success rate to just 51.13% (which is equivalent to random guessing).
+
+### 5. DP LLM Fine-tuning using LoRA
+* *File Name:* dp_llm_finetuning_lora_opacus.ipynb
+* *Objective:* Secure sensitive medical information during Large Language Model (LLM) customization. Implemented LoRA (Low-Rank Adaptation) for parameter-efficient tuning alongside Opacus for differential privacy tracking.
+* *Results & Achievements:* Achieved an exceptional privacy guarantee of Epsilon = 0.5 while successfully fine-tuning the model on a highly sensitive, original medical dataset.
+* *Note:*
+Fine-tuning parameter plots and mathematical budget tracking charts are included inside this notebook.
+
+### 6. DP Synthetic Data Generation
+* *File Name:* dp-synthetic-data-generation-mst.ipynb
+* *Objective:* Generate private, high-fidelity synthetic datasets conforming to differential privacy definitions.
+* *Results & Achievements:* Produced high-utility generative synthetic data that completely shields the underlying original records, rendering it safe for external sharing and research distribution.
+* *Note:*
+Data distribution comparison graphs (Original vs. Synthetic) are included inside this notebook.
+
+### 7. Differential Privacy Auditing and Benchmarking: Baseline vs. Low-Epsilon Safety
+* *File Name:* dp_auditing_benchmarking_baseline_vs_safety.ipynb
+* *Objective:* Audit and benchmark the empirical privacy leakage of models by evaluating a standard non-private baseline against a highly secure, low-epsilon configuration using Opacus.
+* *Results & Achievements:* Successfully verified the strict privacy bounds of the low-epsilon system. By configuring a high Noise Multiplier of 3.5, the audited system yielded a highly secure empirical privacy bound of Epsilon = 0.3639, demonstrating a near-zero verifiable information disclosure compared to the infinite privacy leakage of the unprotected baseline model.
+* *Note:*
+Comparative bar charts mapping Baseline Leakage vs. Low-Epsilon Safety limits are included inside this notebook.
+
+---
+
+## 💻 How to Run
+
+1. Clone the repository and navigate to the project directory:
+git clone https://github.com
+cd privacy-preserving-deep-learning
+
+2. Install all required dependencies:
+pip install torch torchvision opacus notebook matplotlib numpy transformers peft
+
+3. Launch Jupyter Notebook or upload the files to Google Colab to run any of the project scripts:
+jupyter notebook
+
+---
+
+## 📄 License
+This repository is licensed under the [MIT](LICENSE) License.
